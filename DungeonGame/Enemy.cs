@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace DungeonGame
 {
-    public class Enemy
+    public class Enemy: Weapon
     {
         // private variables
-
         private String type = "n/a";
         private int id = 0;
         private int health = 0;
         private int maxHealth = 0;
         private int attackDamage = 0;
-        private String weapon = "n/a";
+        private Weapon weapon;
 
         // public variables
-
         public String Type
         {
             get { return this.type; }
@@ -49,33 +47,32 @@ namespace DungeonGame
             set { this.attackDamage = value; }
         }
 
-        public String Weapon
+        public Weapon Weapon
         {
             get { return this.weapon; }
             set { this.weapon = value; }
         }
 
         // constructors
-
         public Enemy()
         {
             // empty constructor
         }
 
-        public Enemy(String aType, int anId, int aHealth, int aMaxHealth)
+        public Enemy(String aType, int anId, int aHealth, int aMaxHealth, Weapon aWeapon)
         {
-            this.type = aType;
-            this.id = anId;
-            this.health = aHealth;
+            this.Type = aType;
+            this.Id = anId;
+            this.Health = aHealth;
             this.MaxHealth = aMaxHealth;
+            this.Weapon = aWeapon;
         }
 
         // methods
-
         public void Attack(Enemy attacker, Player target)
         {
             target.Health -= attacker.AttackDamage;
-            Console.WriteLine(target.Name + " has taken " + attacker.AttackDamage + " damage.\n");
+            Console.WriteLine(target.PlayerName + " has taken " + attacker.AttackDamage + " damage.\n");
         }
 
         public override string ToString()

@@ -12,5 +12,6 @@ namespace DungeonGame
     interface IFunctions
     {
         void Attack(); // Both players and enemies can attack
+        void SpawnEvent(); // Events can spawn on all floors
     }
 }
